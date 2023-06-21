@@ -1,0 +1,8 @@
+{
+    "name": "kotlin-test-app",
+    "build": { "dockerfile": "../Dockerfile"},
+    "workspaceFolder": "../src",
+    "forwardPorts": [8080],
+    "postCreateCommand": "../scripts/perstart-dev.sh",
+    "postStartCommand": "cd src & docker-compose start"
+}

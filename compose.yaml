@@ -1,0 +1,10 @@
+version: "3"
+services:
+  testapp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: "no"
+    ports:
+      - 8080:8080
+    container_name: testimage
