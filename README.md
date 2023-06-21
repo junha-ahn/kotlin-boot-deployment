@@ -11,7 +11,7 @@ docker rmi `docker images -q`
 
 ./scripts/run-dev.sh
 ```
-
+```bash
 # 1. build & docker-compse up
 IMAGE          CREATED          CREATED BY                                      SIZE      COMMENT
 376efba42b46   39 seconds ago   ENTRYPOINT ["java" "org.springframework.boot…   0B        buildkit.dockerfile.v0
@@ -85,3 +85,4 @@ Building testapp
 <missing>      14 months ago    /bin/sh -c set -eux;  apt-get update;  apt-g…   4.87MB    
 <missing>      14 months ago    /bin/sh -c #(nop)  CMD ["bash"]                 0B        
 <missing>      14 months ago    /bin/sh -c #(nop) ADD file:8b1e79f91081eb527…   80.4MB 
+```
