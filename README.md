@@ -7,6 +7,14 @@ this repo for study about spring boot ci/cd
 docker rm `docker ps -a -q` && docker rmi `docker images -q`
 ```
 
+# Mysql
+
+```bash
+> docker exec -it mysql-test bash
+
+bash# mysql -u root -p
+```
+
 # Fat Jar image VS layered JAR image
 
 Fat Jar Image failed to cache **24 mb**, but Layered Jar image failed to cache only **5.91 KB**

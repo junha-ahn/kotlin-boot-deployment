@@ -8,3 +8,17 @@ services:
     ports:
       - 8080:8080
     container_name: testimage
+  db:
+    image: mysql:8.0
+    container_name: mysql-test
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      TZ: Asia/Seoul
+    ports:
+      - 3306:3306
+    volumes:
+      - ./db/mysql/conf.d:/etc/mysql/conf.d
+      - ./db/mysql/initdb.d:/docker-entrypoint-initdb.d
+    platform: linux/x86_64
+
