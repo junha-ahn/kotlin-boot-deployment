@@ -2,17 +2,19 @@
 
 this repo for study about spring boot ci/cd
 
-``` bash
-# remove all docker containers and images
-docker rm `docker ps -a -q` && docker rmi `docker images -q`
+# prepare commit msg
+
+```js
+regex="^(feat|fix|refactor|style|docs|test|chore):.{1,50}(\n.{1,72})?$"
 ```
 
-# Mysql
+# Mysql with docker-compose
 
 ```bash
 > docker exec -it mysql-test bash
 
 bash# mysql -u root -p
+> root
 ```
 
 # Fat Jar image VS layered JAR image
