@@ -8,7 +8,20 @@ this repo for study about spring boot ci/cd
 
 reference [here](https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-java-with-gradle)
 
-# prepare-commit-msg hook
+# commit message check
+
+[commit-regular.txt](https://github.com/junha-ahn/kotlin-test/blob/main/commit-regular.txt)
+```js
+^([Mm][Ee][Rr][Gg][Ee].*)$|^(feat|fix|refactor|style|docs|test|chore):.{1,50}(\n.{1,72})?$
+```
+
+### git actions
+
+[commit-msg-check.yml](https://github.com/junha-ahn/kotlin-test/blob/main/.github/workflows/commit-msg-check.yml)
+
+### prepare-commit-msg hook
+
+[prepare-commit-msg.sh](https://github.com/junha-ahn/kotlin-test/blob/main/scripts/prepare-commit-msg.sh)
 
 [postCreateCommand.sh](https://github.com/junha-ahn/kotlin-test/blob/main/.devcontainer/postCreateCommand.sh)
 ```bash
@@ -16,8 +29,6 @@ git config --local commit.template commit-template.txt
 cp scripts/prepare-commit-msg.sh .git/hooks/prepare-commit-msg
 chmod +x .git/hooks/prepare-commit-msg
 ```
-
-[prepare-commit-msg.sh](https://github.com/junha-ahn/kotlin-test/blob/main/scripts/prepare-commit-msg.sh)
 
 # Mysql with docker-compose
 
