@@ -19,8 +19,6 @@ jobs:
         uses: gradle/gradle-build-action@749f47bda3e44aa060e82d7b3ef7e40d953bd629
         with:
           arguments: build
-      - name: Run Gradle Test
-        run: ./gradlew test
 
   # push:
   #   needs: build
