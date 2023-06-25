@@ -8,6 +8,6 @@ class TestController {
     @GetMapping("/")
     fun `index`(): String {
         println("Hi user")
-        return "Hello world~~"
+        return "Hello world~~
     }
 }
