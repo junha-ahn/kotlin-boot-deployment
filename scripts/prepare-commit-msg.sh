@@ -19,12 +19,7 @@ fi
 
 commit_msg=$(cat "$commit_msg_file")
 
-commit_msg_regex="^(feat|fix|refactor|style|docs|test|chore):.{1,50}(\n.{1,72})?$"
-
-# skip merge commits
-# if echo "$commit_msg" | grep -qi "merge"; then
-#   exit 0
-# fi
+commit_msg_regex=$(cat "$(dirname "$0")/../../commit-regular.txt")
 
 if ! echo "$commit_msg" | grep -Eq "$commit_msg_regex"; then
   echo "Invalid commit message format."
