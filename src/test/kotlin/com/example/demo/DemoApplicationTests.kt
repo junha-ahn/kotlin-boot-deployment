@@ -13,7 +13,7 @@ class DemoApplicationTests {
         val number = 5
 
         // When
-        val result = number + 1
+        val result = number + 2
 
         // Then
         assertEquals(6, result)
