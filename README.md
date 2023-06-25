@@ -2,13 +2,29 @@
 
 this repo for study about spring boot ci/cd
 
-# prepare commit msg
+# Git Actions: Building and testing with Gradle 
 
+[.github/workflows/gradle-build.yml](https://github.com/junha-ahn/kotlin-test/blob/main/.github/workflows/gradle-build.yml)
+
+reference [here](https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-java-with-gradle)
+
+# prepare-commit-msg hook
+
+[postCreateCommand.sh](https://github.com/junha-ahn/kotlin-test/blob/main/.devcontainer/postCreateCommand.sh)
+```bash
+git config --local commit.template commit-template.txt
+cp scripts/prepare-commit-msg.sh .git/hooks/prepare-commit-msg
+chmod +x .git/hooks/prepare-commit-msg
+```
+
+[prepare-commit-msg.sh](https://github.com/junha-ahn/kotlin-test/blob/main/scripts/prepare-commit-msg.sh)
 ```js
 regex="^(feat|fix|refactor|style|docs|test|chore):.{1,50}(\n.{1,72})?$"
 ```
 
 # Mysql with docker-compose
+
+[compose.yaml](https://github.com/junha-ahn/kotlin-test/blob/main/compose.yaml)
 
 ```bash
 > docker exec -it mysql-test bash
@@ -19,10 +35,13 @@ bash# mysql -u root -p
 
 # Fat Jar image VS layered JAR image
 
+[Dockerfile](https://github.com/junha-ahn/kotlin-test/blob/main/Dockerfile)
+
 Fat Jar Image failed to cache **24 mb**, but Layered Jar image failed to cache only **5.91 KB**
 
+reference [here](https://spring.io/guides/topicals/spring-boot-docker/)
 
-## Fat Jar
+### Fat Jar
 
 ```bash
 > docker history kotlin-test_testapp
@@ -56,7 +75,7 @@ IMAGE          CREATED          CREATED BY                                      
 <missing>      14 months ago    /bin/sh -c #(nop) ADD file:8b1e79f91081eb527…   80.4MB    
 ```
 
-## Layered Jar
+### Layered Jar
 
 ```bash
 > docker history kotlin-test_testapp
