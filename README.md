@@ -18,9 +18,6 @@ chmod +x .git/hooks/prepare-commit-msg
 ```
 
 [prepare-commit-msg.sh](https://github.com/junha-ahn/kotlin-test/blob/main/scripts/prepare-commit-msg.sh)
-```js
-regex="^(feat|fix|refactor|style|docs|test|chore):.{1,50}(\n.{1,72})?$"
-```
 
 # Mysql with docker-compose
 
