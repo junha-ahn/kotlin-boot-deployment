@@ -21,3 +21,14 @@ jobs:
           arguments: build
       - name: Run Gradle Test
         run: ./gradlew test
+
+  # push:
+  #   needs: build
+  #   if: ${{ needs.build.result != 'failure' }}
+  #   runs-on: ubuntu-latest
+
+  #   steps:
+  #     - name: Push changes
+  #       uses: ad-m/github-push-action@master
+  #       with:
+  #         github_token: ${{ secrets.GITHUB_TOKEN }}
