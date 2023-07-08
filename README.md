@@ -27,12 +27,12 @@ reference [here](https://docs.github.com/en/actions/automating-builds-and-tests/
 
 ### prepare-commit-msg hook
 
-[prepare-commit-msg.sh](https://github.com/junha-ahn/kotlin-test/blob/main/scripts/prepare-commit-msg.sh)
+[prepare-commit-msg](https://github.com/junha-ahn/kotlin-test/blob/main/scripts/git-hooks/prepare-commit-msg)
 
 [postCreateCommand.sh](https://github.com/junha-ahn/kotlin-test/blob/main/.devcontainer/postCreateCommand.sh)
 ```bash
 git config --local commit.template commit-template.txt
-cp scripts/prepare-commit-msg.sh .git/hooks/prepare-commit-msg
+cp scripts/git-hooks/prepare-commit-msg .git/hooks/prepare-commit-msg
 chmod +x .git/hooks/prepare-commit-msg
 ```
 
