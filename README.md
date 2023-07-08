@@ -1,6 +1,8 @@
-# kotlin-test
+# kotlin-boot-deployment
 
 this repo for study about spring boot ci/cd
+
+you can see [output project](https://github.com/f-lab-clone/ticketing-service)
 
 # Terraform
 
