@@ -1,8 +1,8 @@
 package com.example.demo
 
+import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
-import org.junit.jupiter.api.Assertions.assertEquals
 
 @SpringBootTest
 class DemoApplicationTests {
@@ -16,10 +16,6 @@ class DemoApplicationTests {
         val result = number + 1
 
         // Then
-           assertEquals(6, result)
-
-
-
+        assertEquals(6, result)
     }
-
 }
