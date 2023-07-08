@@ -1,3 +1,9 @@
+aws/
+aws*
+terraform/.terrafrom/*
+terraform/.terraform.lock.hcl
+terraform.tfstate
+
 build
 .gradle
 
