@@ -8,9 +8,9 @@ for [CD: 배포를 위한 환경 세팅](https://github.com/f-lab-clone/ticketin
 
 [terraform config files](https://github.com/junha-ahn/kotlin-boot-deployment/tree/main/terraform)
 
-# Git Actions: Building and testing with Gradle 
+# Git Actions: Build-Test-Lint with Gradle 
 
-[.github/workflows/gradle-build.yml](https://github.com/junha-ahn/kotlin-test/blob/main/.github/workflows/gradle-build.yml)
+[gradle-build-test-lint](https://github.com/junha-ahn/kotlin-boot-deployment/blob/main/.github/workflows/gradle-build-test-lint.yml)
 
 reference [here](https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-java-with-gradle)
 
