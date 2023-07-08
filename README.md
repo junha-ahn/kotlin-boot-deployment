@@ -2,6 +2,12 @@
 
 this repo for study about spring boot ci/cd
 
+# Terraform
+
+for [CD: 배포를 위한 환경 세팅](https://github.com/f-lab-clone/ticketing-service/issues/7)
+
+[terraform config files](https://github.com/junha-ahn/kotlin-boot-deployment/tree/main/terraform)
+
 # Git Actions: Building and testing with Gradle 
 
 [.github/workflows/gradle-build.yml](https://github.com/junha-ahn/kotlin-test/blob/main/.github/workflows/gradle-build.yml)
