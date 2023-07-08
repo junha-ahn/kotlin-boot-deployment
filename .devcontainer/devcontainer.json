@@ -38,7 +38,8 @@
 			"extensions": [
 				"mathiasfrohlich.Kotlin",
 				"vmware.vscode-boot-dev-pack",
-				"GitHub.copilot"
+				"GitHub.copilot",
+				"4ops.terraform"
 			]
 		}
 	}
