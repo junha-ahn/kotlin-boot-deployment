@@ -1,4 +1,4 @@
-name: Java CI
+name: Gradlew build-test-ktlint
 
 on: [push]
 
@@ -19,6 +19,10 @@ jobs:
         uses: gradle/gradle-build-action@749f47bda3e44aa060e82d7b3ef7e40d953bd629
         with:
           arguments: build -x ktlintMainSourceSetCheck -x ktlintTestSourceSetCheck
+      - name: Ktlint check
+        uses: gradle/gradle-build-action@749f47bda3e44aa060e82d7b3ef7e40d953bd629
+        with:
+          arguments: ktlintCheck
 
   # push:
   #   needs: build
