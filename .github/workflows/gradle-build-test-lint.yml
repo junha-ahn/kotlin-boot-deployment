@@ -27,14 +27,21 @@ jobs:
         with:
           arguments: ktlintCheck
 
-      - name: Test
+      - name: Test (and make Jacoco report)
         uses: gradle/gradle-build-action@749f47bda3e44aa060e82d7b3ef7e40d953bd629
         if: always()
         with:
-          arguments: test
+          arguments: test -x jacocoTestCoverageVerification
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
+        if: always()
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           file: ./build/reports/jacoco/test/jacocoTestReport.xml
+
+      - name: jacoco Coverage Verification
+        uses: gradle/gradle-build-action@749f47bda3e44aa060e82d7b3ef7e40d953bd629
+        if: always()
+        with:
+          arguments: jacocoTestCoverageVerification
