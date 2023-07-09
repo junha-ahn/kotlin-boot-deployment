@@ -31,8 +31,7 @@ tasks.jacocoTestReport {
         html.isEnabled = true
         csv.isEnabled = false
         xml.isEnabled = true
-        html.destination = File("${rootProject.rootDir}/jacocoRepost")
-
+        html.destination = File("${rootProject.rootDir}/jacocoReport")
     }
 
     finalizedBy(tasks.jacocoTestCoverageVerification)
