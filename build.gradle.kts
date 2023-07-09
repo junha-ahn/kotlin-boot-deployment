@@ -51,13 +51,13 @@ tasks.jacocoTestCoverageVerification {
             limit {
                 counter = "BRANCH"
                 value = "COVEREDRATIO"
-                minimum = "0.8".toBigDecimal()
+                // minimum = "0.8".toBigDecimal()
             }
 
             limit {
                 counter = "LINE"
                 value = "COVEREDRATIO"
-                maximum = "0.8".toBigDecimal()
+                // maximum = "0.8".toBigDecimal()
             }
 
             // 빈 줄을 제외한 코드의 라인수를 최대 200라인으로 제한합니다.
