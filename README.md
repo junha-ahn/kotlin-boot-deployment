@@ -4,17 +4,62 @@ this repo for study about spring boot ci/cd
 
 you can see [output project](https://github.com/f-lab-clone/ticketing-service)
 
+
 # Terraform
 
 for [CD: 배포를 위한 환경 세팅](https://github.com/f-lab-clone/ticketing-service/issues/7)
 
 [terraform config files](https://github.com/junha-ahn/kotlin-boot-deployment/tree/main/terraform)
 
-# Git Actions: Build-Test-Lint with Gradle 
+# Git Actions: Build-Test-Lint-Coverage with Gradle 
 
 [gradle-build-test-lint](https://github.com/junha-ahn/kotlin-boot-deployment/blob/main/.github/workflows/gradle-build-test-lint.yml)
 
 reference [here](https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-java-with-gradle)
+
+# Test Coverage (with Jacoco, Codecov)
+
+[gradle-build-test-lint](https://github.com/junha-ahn/kotlin-boot-deployment/blob/main/.github/workflows/gradle-build-test-lint.yml)
+
+```yml
+- name: Jacoco Coverage Report
+  uses: gradle/gradle-build-action@749f47bda3e44aa060e82d7b3ef7e40d953bd629
+  if: always()
+  with:
+    arguments: jacocoTestReport -x test -x jacocoTestCoverageVerification
+
+- name: Upload coverage to Codecov
+  uses: codecov/codecov-action@v3
+  if: always()
+  with:
+    token: ${{ secrets.CODECOV_TOKEN }}
+    file: ./build/reports/jacoco/test/jacocoTestReport.xml
+
+- name: Jacoco Coverage Verification
+  uses: gradle/gradle-build-action@749f47bda3e44aa060e82d7b3ef7e40d953bd629
+  if: always()
+  with:
+    arguments: jacocoTestCoverageVerification
+```
+
+[here](https://github.com/junha-ahn/kotlin-boot-deployment/tree/main/.github/workflows)
+```kts
+tasks.jacocoTestReport {
+
+    dependsOn(tasks.test)
+    reports {
+        html.isEnabled = true
+        csv.isEnabled = false
+        xml.isEnabled = true
+        html.destination = File("${rootProject.rootDir}/jacocoRepost")
+
+    }
+
+    finalizedBy(tasks.jacocoTestCoverageVerification)
+}
+
+...
+```
 
 # commit message check
 
