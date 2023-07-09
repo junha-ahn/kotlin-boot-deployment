@@ -31,10 +31,23 @@ jobs:
         uses: gradle/gradle-build-action@749f47bda3e44aa060e82d7b3ef7e40d953bd629
         if: always()
         with:
-          arguments: test
+          arguments: test -x jacocoTestReport
 
-      - name: Add coverage to PR
-        uses: madrapps/jacoco-report@v1.3
+      - name: Jacoco Coverage Report
+        uses: gradle/gradle-build-action@749f47bda3e44aa060e82d7b3ef7e40d953bd629
+        if: always()
         with:
-          paths: ${{ github.workspace }}/build/reports/jacoco/test/jacocoTestReport.xml
-          token: ${{ secrets.GITHUB_TOKEN }}
+          arguments: jacocoTestReport -x test -x jacocoTestCoverageVerification
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v3
+        if: always()
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          file: ./build/reports/jacoco/test/jacocoTestReport.xml
+
+      - name: Jacoco Coverage Verification
+        uses: gradle/gradle-build-action@749f47bda3e44aa060e82d7b3ef7e40d953bd629
+        if: always()
+        with:
+          arguments: jacocoTestCoverageVerification
