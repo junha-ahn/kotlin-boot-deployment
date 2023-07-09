@@ -1,3 +1,5 @@
+jacocoRepost/
+
 aws/
 aws*
 terraform/.terrafrom/*
