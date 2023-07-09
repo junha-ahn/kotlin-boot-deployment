@@ -32,3 +32,9 @@ jobs:
         if: always()
         with:
           arguments: test
+
+      - name: Jacoco report
+        uses: madrapps/jacoco-report@v1.2
+        with:
+          paths: ${{ github.workspace }}/build/reports/jacoco/test/jacocoTestReport.xml
+          token: ${{ secrets.GITHUB_TOKEN }}
