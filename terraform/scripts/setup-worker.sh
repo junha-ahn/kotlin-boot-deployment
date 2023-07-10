@@ -1,8 +1,3 @@
-sudo ufw enable -y
-sudo ufw allow 10250/tcp
-sudo ufw allow 30000:32767/tcp
-
-sudo rm /etc/containerd/config.toml
-sudo systemctl restart containerd
+# kubeadm join 10.0.1.248:6443 --token e5fnsh.02uoogtcgeidm0xv --discovery-token-ca-cert-hash sha256:e021956f2481c04e2e5a456cdf1c0975aa6c80fc82a6f6aad08074480ba09229
 
 echo "hello-worker"
