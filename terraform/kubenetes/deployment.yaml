@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: core
-          image: devjunha/kotlin-app:992ff4da720068fe127689e2a4eb9c2e3adb2a11
+          image: devjunha/kotlin-app:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
