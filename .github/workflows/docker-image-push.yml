@@ -26,4 +26,4 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/kotlin-app:${{ github.sha }}
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/kotlin-app:${{ github.sha }} ${{ secrets.DOCKERHUB_USERNAME }}/kotlin-app:latest
