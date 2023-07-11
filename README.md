@@ -40,6 +40,7 @@ reference [here](https://docs.github.com/en/actions/automating-builds-and-tests/
 
 [gradle-build-test-lint](https://github.com/junha-ahn/kotlin-boot-deployment/blob/main/.github/workflows/gradle-build-test-lint.yml)
 
+
 ```yml
 - name: Jacoco Coverage Report
   uses: gradle/gradle-build-action@749f47bda3e44aa060e82d7b3ef7e40d953bd629
@@ -83,6 +84,7 @@ tasks.jacocoTestReport {
 # commit message check
 
 [commit-regular.txt](https://github.com/junha-ahn/kotlin-test/blob/main/commit-regular.txt)
+
 ```js
 ^([Mm][Ee][Rr][Gg][Ee].*)$|^(feat|fix|refactor|style|docs|test|chore):.{1,50}(\n.{1,72})?$
 ```
@@ -118,8 +120,14 @@ bash# mysql -u root -p
 [Dockerfile](https://github.com/junha-ahn/kotlin-test/blob/main/Dockerfile)
 
 Fat Jar Image failed to cache **24 mb**, but Layered Jar image failed to cache only **5.91 KB**
+- and build in docker, so **no local dependencies**
+- **multi-stage build**
 
 reference [here](https://spring.io/guides/topicals/spring-boot-docker/)
+
+<details>
+<summary>접기/펼치기</summary>
+
 
 ### Fat Jar
 
@@ -193,3 +201,4 @@ f77f5b4823cd   1 seconds ago   ENTRYPOINT ["java" "org.springframework.boot…  
 <missing>      14 months ago   /bin/sh -c #(nop)  CMD ["bash"]                 0B        
 <missing>      14 months ago   /bin/sh -c #(nop) ADD file:8b1e79f91081eb527…   80.4MB
 ```
+</details>
