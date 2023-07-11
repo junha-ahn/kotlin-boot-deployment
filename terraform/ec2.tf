@@ -40,7 +40,7 @@ resource "aws_instance" "master" {
 
 resource "aws_instance" "worker1" {
     ami           = "ami-0c9c942bd7bf113a2"
-    instance_type = "t2.micro"
+    instance_type = "t3.small"
     subnet_id = aws_subnet.public_subnet.id
     associate_public_ip_address = true
     vpc_security_group_ids = [aws_security_group.cicd_sg.id]
@@ -76,4 +76,14 @@ resource "aws_instance" "worker1" {
             private_key = tls_private_key.pk.private_key_pem
         }
     }
+}
+
+output "master_public_ip" {
+  description = "Public IP address of the Master"
+  value       = aws_instance.master.public_ip
+}
+
+output "worker1_public_ip" {
+  description = "Public IP address of the worker1"
+  value       = aws_instance.worker1.public_ip
 }

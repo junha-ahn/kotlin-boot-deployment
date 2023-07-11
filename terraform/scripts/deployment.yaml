@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kotlin-app-deployment
+spec:
+  selector:
+    matchLabels:
+      app: kotlin-app
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: kotlin-app
+    spec:
+      containers:
+        - name: core
+          image: devjunha/kotlin-app:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          resources:
+            requests:
+              cpu: 500m
+              memory: 1000Mi
