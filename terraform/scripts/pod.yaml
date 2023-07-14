@@ -10,7 +10,7 @@ spec:
     image: devjunha/kotlin-app:latest
     imagePullPolicy: Always
     ports:
-      - containerPort: 8080
+      - containerPort: 80
         protocol: TCP
     resources:
       requests:
