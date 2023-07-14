@@ -4,6 +4,11 @@ this repo for study about spring boot ci/cd
 
 you can see [output project](https://github.com/f-lab-clone/ticketing-service)
 
+# Kubernetes
+
+![image](https://github.com/junha-ahn/kotlin-boot-deployment/assets/41976906/186636c3-5df7-4dbe-9572-b4b4c28b6c83)
+
+manually install&run for Study
 
 # Terraform
 
