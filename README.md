@@ -16,7 +16,7 @@ for [CD: 배포를 위한 환경 세팅](https://github.com/f-lab-clone/ticketin
 
 [terraform config files](https://github.com/junha-ahn/kotlin-boot-deployment/tree/main/terraform)
 
-# Git Actions: Build-Test-Lint with Gradle 
+# Git Actions: Build-Test-Lint with Gradle (Parallel)
 
 [gradle-build-test-lint](https://github.com/junha-ahn/kotlin-boot-deployment/blob/main/.github/workflows/gradle-build-test-lint.yml)
 
@@ -26,11 +26,15 @@ for [CD: 배포를 위한 환경 세팅](https://github.com/f-lab-clone/ticketin
   with:
     arguments: bootJar
 
+...
+
 - name: Ktlint check
   uses: gradle/gradle-build-action@749f47bda3e44aa060e82d7b3ef7e40d953bd629
   if: always()
   with:
     arguments: ktlintCheck
+
+...
 
 - name: Test
   uses: gradle/gradle-build-action@749f47bda3e44aa060e82d7b3ef7e40d953bd629
