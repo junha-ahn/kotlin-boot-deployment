@@ -3,7 +3,7 @@ name: Gradlew build-test-ktlint
 on: [push]
 
 jobs:
-  build:
+  set-up:
     runs-on: ubuntu-latest
 
     steps:
@@ -16,23 +16,29 @@ jobs:
       - name: Validate Gradle wrapper
         uses: gradle/wrapper-validation-action@ccb4328a959376b642e027874838f60f8e596de3
 
+
+  build:
+    runs-on: ubuntu-latest
+    needs: set-up
+    steps:
       - name: Build 
         uses: gradle/gradle-build-action@749f47bda3e44aa060e82d7b3ef7e40d953bd629
         with:
           arguments: bootJar
-
-      - name: Ktlint check
-        uses: gradle/gradle-build-action@749f47bda3e44aa060e82d7b3ef7e40d953bd629
-        if: always()
-        with:
-          arguments: ktlintCheck
-
+  test:
+    runs-on: ubuntu-latest
+    needs: set-up
+    steps:
       - name: Test
         uses: gradle/gradle-build-action@749f47bda3e44aa060e82d7b3ef7e40d953bd629
         if: always()
         with:
           arguments: test -x jacocoTestReport
 
+  coverage:
+    runs-on: ubuntu-latest
+    needs: set-up
+    steps:
       - name: Jacoco Coverage Report
         uses: gradle/gradle-build-action@749f47bda3e44aa060e82d7b3ef7e40d953bd629
         if: always()
@@ -51,3 +57,13 @@ jobs:
         if: always()
         with:
           arguments: jacocoTestCoverageVerification
+
+  lint:
+    runs-on: ubuntu-latest
+    needs: set-up
+    steps:
+      - name: Ktlint check
+        uses: gradle/gradle-build-action@749f47bda3e44aa060e82d7b3ef7e40d953bd629
+        if: always()
+        with:
+          arguments: ktlintCheck
