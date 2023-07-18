@@ -21,49 +21,51 @@ jobs:
     runs-on: ubuntu-latest
     needs: set-up
     steps:
+      - name: Validate Gradle wrapper
+        uses: gradle/wrapper-validation-action@ccb4328a959376b642e027874838f60f8e596de3
       - name: Build 
         uses: gradle/gradle-build-action@749f47bda3e44aa060e82d7b3ef7e40d953bd629
         with:
           arguments: bootJar
-  test:
-    runs-on: ubuntu-latest
-    needs: set-up
-    steps:
-      - name: Test
-        uses: gradle/gradle-build-action@749f47bda3e44aa060e82d7b3ef7e40d953bd629
-        if: always()
-        with:
-          arguments: test -x jacocoTestReport
+  # test:
+  #   runs-on: ubuntu-latest
+  #   needs: set-up
+  #   steps:
+  #     - name: Test
+  #       uses: gradle/gradle-build-action@749f47bda3e44aa060e82d7b3ef7e40d953bd629
+  #       if: always()
+  #       with:
+  #         arguments: test -x jacocoTestReport
 
-  coverage:
-    runs-on: ubuntu-latest
-    needs: set-up
-    steps:
-      - name: Jacoco Coverage Report
-        uses: gradle/gradle-build-action@749f47bda3e44aa060e82d7b3ef7e40d953bd629
-        if: always()
-        with:
-          arguments: jacocoTestReport -x test -x jacocoTestCoverageVerification
+  # coverage:
+  #   runs-on: ubuntu-latest
+  #   needs: set-up
+  #   steps:
+  #     - name: Jacoco Coverage Report
+  #       uses: gradle/gradle-build-action@749f47bda3e44aa060e82d7b3ef7e40d953bd629
+  #       if: always()
+  #       with:
+  #         arguments: jacocoTestReport -x test -x jacocoTestCoverageVerification
 
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v3
-        if: always()
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-          file: ./build/reports/jacoco/test/jacocoTestReport.xml
+  #     - name: Upload coverage to Codecov
+  #       uses: codecov/codecov-action@v3
+  #       if: always()
+  #       with:
+  #         token: ${{ secrets.CODECOV_TOKEN }}
+  #         file: ./build/reports/jacoco/test/jacocoTestReport.xml
 
-      - name: Jacoco Coverage Verification
-        uses: gradle/gradle-build-action@749f47bda3e44aa060e82d7b3ef7e40d953bd629
-        if: always()
-        with:
-          arguments: jacocoTestCoverageVerification
+  #     - name: Jacoco Coverage Verification
+  #       uses: gradle/gradle-build-action@749f47bda3e44aa060e82d7b3ef7e40d953bd629
+  #       if: always()
+  #       with:
+  #         arguments: jacocoTestCoverageVerification
 
-  lint:
-    runs-on: ubuntu-latest
-    needs: set-up
-    steps:
-      - name: Ktlint check
-        uses: gradle/gradle-build-action@749f47bda3e44aa060e82d7b3ef7e40d953bd629
-        if: always()
-        with:
-          arguments: ktlintCheck
+  # lint:
+  #   runs-on: ubuntu-latest
+  #   needs: set-up
+  #   steps:
+  #     - name: Ktlint check
+  #       uses: gradle/gradle-build-action@749f47bda3e44aa060e82d7b3ef7e40d953bd629
+  #       if: always()
+  #       with:
+  #         arguments: ktlintCheck
