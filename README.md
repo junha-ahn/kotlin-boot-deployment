@@ -92,6 +92,8 @@ tasks.jacocoTestReport {
 
 # commit message check
 
+[Setup Guide: pre-commit, husky 없이 Git Hooks 사용하기](https://devkly.com/devops/git-hooks/)
+
 [commit-regular.txt](https://github.com/junha-ahn/kotlin-test/blob/main/commit-regular.txt)
 
 ```js
